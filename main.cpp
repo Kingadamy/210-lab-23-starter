@@ -7,41 +7,6 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-class Goat {  
-private:
-    string name;
-    int age;
-    string color;
-public: 
-    Goat()                          { name = ""; age = 0; color = ""; }
-    // write three more constructors
-// first constructor will take only name
-    Goat (string n) {
-        name = n; age = 0; color = ""; 
-    }
-
-// second constructor will take name and age
-    Goat (string n, int a) {
-        name = n; age = a; color = ""; 
-    }
-
-// third constructor will take name, age, and color
-    Goat (string n, int a, string c) {
-        name = n; age = a; color = c; 
-    }
-
-    // setters and getters
-    void set_name(string n)         { name = n; };
-    string get_name() const         { return name; };
-    void set_age(int a)             { age = a; };
-    int get_age() const             { return age; }
-    void set_color(string c)        { color = c; }
-    string get_color() const        { return color; }
-
-    // write overloaded < operator for the std::list
-};
-
-
 // create main menu function for these options:
 // *** GOAT MANAGER 3001 ***
 // [1] Add a goat
@@ -57,12 +22,30 @@ int main_menu() {
       << "[3] List goats\n"
       << "[4] Quit\n"
       << "Choice --> ";
+
+      int choice;
+        cin >> choice;
+        return choice;
 }
       
-void add_goat(list<Goat>, string names[], string colors[]) {
-    int name = rand() % SZ_NAMES;
-    int color = rand() % SZ_COLORS;
-    int age = rand() % (MAX_AGE + 1);
+void add_goat(list<Goat> &trip, string names[], string colors[]) { // create a new goat with random name, color, age
+    int name_used = rand() % SZ_NAMES; // select random name from the names array
+    int color_used = rand() % SZ_COLORS; // select random color from the colors array
+    int age = rand() % (MAX_AGE + 1); // select random age from 0 to MAX_AGE
+
+    Goat new_goat; // here we create the new goat
+    new_goat.set_name(names[name_used]); // set the name
+    new_goat.set_color(colors[color_used]); // set the color
+    new_goat.set_age(age); // set age
+
+    trip.push_back(new_goat); // add the new goat to the list
+
+    cout << "Added goat: " << new_goat.get_name() << ", Age: " << new_goat.get_age()
+         << ", Color: " << new_goat.get_color() << endl;
+}
+
+void delete_goat(list<Goat> &trip) {
+
 
 }
    
