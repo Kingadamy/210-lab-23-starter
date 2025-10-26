@@ -27,7 +27,7 @@ public:
 
     // write overloaded < operator for the std::list
 
-    bool operator<(const Goat &other) const {
+    bool operator<(const Goat &other) const {  // was looking over assignment again and realizewd I forgot to add this
         return this->age < other.age;
     }
 
