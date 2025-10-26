@@ -12,10 +12,10 @@ int select_goat(list<Goat> trip){
     cout << "Which goat would you like to delete? (pick a number) \n";
     int count = 1;
     for(auto goat : trip) { // this loop goes through each goat in the list
-        cout << count++ << // display how many
-            " Name: " << goat.get_name() <<
-            ", Age: " << goat.get_age() <<
-            ", Color: " << goat.get_color() << endl;
+        cout << " [" << count++ << "]" << // number the goats
+          << goat.get_name() <<
+            " (" << goat.get_age() << ", " 
+             << goat.get_color() << ")\n";
     }
 
     int choice; // get user choice
@@ -73,10 +73,10 @@ void display_trip(list<Goat> trip) { // display all goats in the trip
     int count = 1; // set count to one 
     cout << "Goats in the trip:\n";
     for(auto goat : trip) { // this loop goes through each goat in the list
-        cout << count++ << // display how many
-            " Name: " << goat.get_name() <<
-            ", Age: " << goat.get_age() <<
-            ", Color: " << goat.get_color() << endl;
+        cout << " [" << count++ << "]" << // number the goats
+             goat.get_name() <<
+            " (" << goat.get_age() << ", "  << 
+             goat.get_color() << ")\n";
 }
 }
 
@@ -98,12 +98,6 @@ int main_menu() {
 
 
 
-int select_goat(list<Goat> trip); // done
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []); // done
-void display_trip(list<Goat> trip); // done
-int main_menu(); // still needs work
-
 int main() {
     srand(time(0));
     bool again;
@@ -120,8 +114,28 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    list<Goat> trip; // create the list 
 
+    while(true) {
+        int choice = main_menu(); // show the menu and get user choice
 
+       if (choice == 1) {
+           add_goat(trip, names, colors);
+       }
+       else if (choice == 2) {
+           delete_goat(trip);
+       }
+       else if (choice == 3) {
+           display_trip(trip);
+       }
+       else if (choice == 4) {
+           cout << "Exiting Goat Manager 3001.\n";
+           break;
+       }
+       else {
+           cout << "Invalid choice.\n";
+       }
+    }
 
     return 0;
 }
