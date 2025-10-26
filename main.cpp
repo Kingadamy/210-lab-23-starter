@@ -44,11 +44,21 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) { // create a n
          << ", Color: " << new_goat.get_color() << endl;
 }
 
-void delete_goat(list<Goat> &trip) {
+void display_trip(list<Goat> &trip) { // display all goats in the trip
+    if(trip.empty()) { // check if the list is empty
+        cout << "No goats in the trip.\n";
+        return;
+    }
 
-
+    int count = 1; // set count to one 
+    cout << "Goats in the trip:\n";
+    for(auto goat : trip) { // this loop goes through each goat in the list
+        cout << count++ << // display how many
+            " Name: " << goat.get_name() <<
+            ", Age: " << goat.get_age() <<
+            ", Color: " << goat.get_color() << endl;
 }
-   
+}
 
 
 
