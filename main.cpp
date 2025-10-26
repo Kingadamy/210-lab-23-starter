@@ -50,6 +50,23 @@ public:
 // [4] Quit
 // Choice --> 
 
+int main_menu() {
+ cout << "*** GOAT MANAGER 3001 ***\n"
+      << "[1] Add a goat\n"
+      << "[2] Delete a goat\n"
+      << "[3] List goats\n"
+      << "[4] Quit\n"
+      << "Choice --> ";
+}
+      
+void add_goat(list<Goat>, string names[], string colors[]) {
+    int name = rand() % SZ_NAMES;
+    int color = rand() % SZ_COLORS;
+    int age = rand() % (MAX_AGE + 1);
+
+}
+   
+
 
 
 
