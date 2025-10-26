@@ -12,8 +12,8 @@ int select_goat(list<Goat> trip){
     cout << "Which goat would you like to delete? (pick a number) \n";
     int count = 1;
     for(auto goat : trip) { // this loop goes through each goat in the list
-        cout << " [" << count++ << "]" << // number the goats
-          << goat.get_name() <<
+        cout << " [" << count++ << "] " << // number the goats
+            goat.get_name() <<
             " (" << goat.get_age() << ", " 
              << goat.get_color() << ")\n";
     }
